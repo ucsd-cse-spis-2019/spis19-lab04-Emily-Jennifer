@@ -1,4 +1,6 @@
 #Turtle draws a spiral depending on initialLength, angle, and multiplier
+#Also draws a tree. A very nice tree
+#Emily and Jennifer
 
 import turtle
 
@@ -16,6 +18,7 @@ def spiral(initialLength, angle, multiplier):
 
 
 def tree(trunkLength, height):
+    """Draws a recursive tree based off how long you want it to be and how many times you want it to repeat"""
     if height == 1:
         turtle.forward(trunkLength)
         turtle.right(45)
@@ -25,35 +28,20 @@ def tree(trunkLength, height):
         turtle.forward(trunkLength // 2)
         turtle.backward(trunkLength // 2)
         turtle.right(45)
-        #turtle.backward(trunkLength)
-
+    
+    #Recurses on tree branch
     else:
+        #turtle moves forward and right
         turtle.forward(trunkLength)
         turtle.right(45)
-        #turtle.forward(trunkLength // 2)
         tree(trunkLength//2, height-1)
+        #Return of the turtle and then it turns left
         turtle.backward(trunkLength // 2)
         turtle.left(90)
-        #turtle.forward(trunkLength // 2)
         tree(trunkLength//2, height-1)
+        #Return of the Turtle 2: Uprising
         turtle.backward(trunkLength // 2)
         turtle.right(45)
-        #turtle.backward(trunkLength)
-        #turtle.forward(trunkLength)
-        #turtle.right(45)
-        #print("turtle moving right!" + str(turtle.heading()))
-        #tree(trunkLength * .5, height-1)
-        #print("Turtle going back!" + str(turtle.heading()))
-        #turtle.left(45)
-        #turtle.backward(trunkLength)
-        #turtle.left(90)
-        #print("turtle moving lef!" + str(turtle.heading()))
-        #t2ree(trunkLength*.5, height-1)
-        #print("Turtle going back 2.0!" + str(turtle.heading()))
-        #turtle.right(135)
-        #turtle.backward(trunkLength)
-        #turtle.right(45)
-        input("hi")
 #Test case
 #spiral(1, -45, 1.1)
 turtle.speed(1)
