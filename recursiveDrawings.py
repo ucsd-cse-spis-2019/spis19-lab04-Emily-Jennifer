@@ -42,9 +42,48 @@ def tree(trunkLength, height):
         #Return of the Turtle 2: Uprising
         turtle.backward(trunkLength // 2)
         turtle.right(45)
-#Test case
+
+def snowflakeSide(sidelength, levels):
+    '''Draws one side of a snowflake recursively depending on sidelength and levels'''
+    #base case - draw one line segment
+    if levels == 0:
+        turtle.forward(sidelength)
+    #recurse four times for snowflake side 
+    else:
+        snowflakeSide(sidelength//3, levels-1)
+        turtle.left(60)
+        snowflakeSide(sidelength//3, levels-1)
+        turtle.right(120)
+        snowflakeSide(sidelength//3, levels-1)
+        turtle.left(60)
+        snowflakeSide(sidelength//3, levels-1)
+    
+    
+def snowflake(sidelength, levels):
+    '''Calls snowflakeSide three times to draw triangle'''
+
+    snowflakeSide(sidelength,levels)
+    turtle.right(120)
+    snowflakeSide(sidelength,levels)
+    turtle.right(120)
+    snowflakeSide(sidelength,levels)
+
+
+
+turtle.speed(0)        
+
+#Test case tree
 #spiral(1, -45, 1.1)
-turtle.speed(1)
-turtle.left(90)
-tree(200, 4)
+#turtle.left(90)
+#tree(200, 4)
+
+#Test case snowflake
+#snowflakeSide(100, 2)
+snowflake(100, 4)
+
+
+
+
+
+
 
